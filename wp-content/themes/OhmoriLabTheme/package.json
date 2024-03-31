@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "**早稲田大学 創造理工学部 経営システム工学科 大森研究室のオフィシャルHP**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shohei1227/OhmoriLabHP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shohei1227/OhmoriLabHP/issues"
+  },
+  "homepage": "https://github.com/shohei1227/OhmoriLabHP#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}

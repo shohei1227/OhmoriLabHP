@@ -1,0 +1,1 @@
+console.log('test.jsの読み込み確認');
