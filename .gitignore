@@ -30,3 +30,6 @@ wp-config.php
 
 # Mac DS_Store
 .DS_Store
+
+
+node_modules/
