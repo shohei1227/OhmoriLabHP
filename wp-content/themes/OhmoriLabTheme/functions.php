@@ -6,6 +6,7 @@
  *      2.1 wp_nav_menu(メニューの表示)のカスタマイズ
  * 9. 設定項目
  *      9.1 管理画面のメニューを有効に
+ *      9.2 カスタム投稿(News)を作成
    --------------------------------- */
 
 // ---------- 1. 読み込み ---------- 
@@ -50,8 +51,8 @@ class Custom_Walker_Main_Menu extends Walker_Nav_Menu {
         $css_classes = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
 
         if ($depth == 0) {
-            $output .= '<li id="' . $id . '" class="' . $css_classes . ' max-lg:border-b max-lg:bg-[#007bff] max-lg:py-2 px-3 max-lg:rounded">';
-            $output .= '<h4 class="font-bold text-lg mb-2"><a href="' . $item->url . '" class="lg:hover:text-[#007bff] text-[#007bff] max-lg:text-white block font-semibold text-[15px]">' . $item->title . '</a></h4>';
+            $output .= '<li id="' . $id . '" class="' . $css_classes . ' max-lg:border-b max-lg:bg-primary max-lg:py-2 px-3 max-lg:rounded flex">';
+            $output .= '<i class="fa-solid fa-chevron-down text-primary-700 font-bold m-auto"></i><h4 class="font-bold text-lg px-3"><a href="' . $item->url . '" class="lg:hover:text-primary-900 text-primary-700 max-lg:text-white block font-semibold text-[18px]">' . $item->title . '</a></h4>';
         } else {
             $output .= '<li id="' . $id . '" class="' . $css_classes . '">';
             $output .= '<a class="block px-4 py-2 text-sm text-gray-800" href="' . $item->url . '">' . $item->title . '</a>';
@@ -73,3 +74,25 @@ function register_my_menus() {
     );
 }
 add_action( 'after_setup_theme', 'register_my_menus' );
+
+// 9.2 カスタム投稿(News)を作成
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+    register_post_type( 'news', [ // 投稿タイプ名の定義
+        'labels' => [
+            'name'          => 'ニュース', // 管理画面上で表示する投稿タイプ名
+            'singular_name' => 'News',    // カスタム投稿の識別名
+        ],
+        'public'        => true,    // 投稿タイプをpublicにするか
+        'has_archive'   => true,    // アーカイブ機能ON/OFF
+        'menu_position' => 4,       // 管理画面上での配置場所
+        'show_in_rest'  => true,    // 5系から出てきた新エディタ「Gutenberg」を有効にする
+        'supports'      => ["title", "editor"]
+    ]);
+    register_taxonomy( 'news-category', 'news', [
+        'label'         => 'カテゴリー',
+        'hierarchical'  => true,
+        'public'        => true,
+        'show_in_rest'  => true,
+    ]);
+}

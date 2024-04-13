@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja" class="scroll-smooth">
+<html <?php language_attributes(); ?> class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php echo bloginfo('name'); ?></title>
     <meta name="description" content="<?php bloginfo('description'); ?>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="<?php echo esc_url(get_theme_file_uri('assets/images/favicon.png')); ?>">
 
     <?php wp_head(); ?>
 </head>
 
 <body>
-    <header class='fixed w-full shadow-md py-4 px-4 sm:px-10 bg-primary font-[sans-serif] min-h-[70px] '>
+    <header id="ohmorilab__site-header"
+        class='fixed w-full py-4 px-4 sm:px-10 bg-transparent font-[sans-serif] min-h-[70px] transition-colors duration-300 z-50'>
         <div class='flex justify-between items-center gap-5 relative'>
             <div class='flex items-center mx-4'>
                 <h1 class='px-4'><?php bloginfo( 'name' ); ?>のロゴ</h1>

@@ -23,3 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const header = document.getElementById('ohmorilab__site-header');
+
+    window.addEventListener('scroll', function () {
+        // スクロール量が50pxより大きいかどうかを確認
+        if (window.scrollY > 50) {
+            header.classList.remove('bg-transparent');
+            header.classList.add('bg-white');
+        } else {
+            header.classList.remove('bg-white');
+            header.classList.add('bg-transparent');
+        }
+    });
+});

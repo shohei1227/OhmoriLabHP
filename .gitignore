@@ -33,3 +33,7 @@ wp-config.php
 
 
 node_modules/
+tmp/
+
+**/assets/videos
+**/assets/images
