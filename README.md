@@ -24,11 +24,15 @@
 - MySQL 	8.0.16
 - TailwindCSS
 
+### プラグイン
+
 
 ### ログイン情報(ローカルにおけるデモとして。リリース後は安全なところに保存)
 - User: root
 - Pass: root
 
+- User: Ohmori
+- Pass: password
 
 ### ページ構成
 **一般公開**
@@ -46,6 +50,9 @@
 - 研究室メンバー /members
 - リンク集 /links
 - 研究室 /
+- 進路・就職先
+- 体験談
+- イベント紹介
 - アルバム
 - お問い合わせ /contact
 
@@ -74,6 +81,7 @@ npx tailwindcss init
 // tailwind.config.jsの編集
 // tailwind.cssの作成
 npx tailwindcss -i ./tailwind.css -o ./assets/css/tailwind.css --watch
+
 ```
 
 ```
